@@ -97,5 +97,41 @@ class ServerUtil {
 
         }
 
+//회원가입 기능
+
+        fun putRequestSignUp(email : String, pw : String, nickname : String, handler: JsonResponseHandler?){
+
+            val urlString = "${HOST_URL}/user"
+
+            val formData = FormBody.Builder()
+                .add("emial", email)
+                .add("password", pw)
+                .add("nick_name", nickname)
+                .build()
+
+            val request = Request.Builder()
+                .url(urlString)
+                .put(formData)
+                .build()
+
+            val client = OkHttpClient()//callback - 서버 다녀와서 무엇을 할건지 처리한다 -> 갔다와서 행동바침 처리
+            client.newCall(request).enqueue(object : Callback{
+
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+
+                    val bodyString = response.body!!.string() //본문만 가져온다 body!! body - null 처리
+                    val jsonObj = JSONObject(bodyString)//한글이 깨져나오기 때문에 jsonObj - 객체화진행
+                    Log.d("서버응답", jsonObj.toString())
+                    handler!!.onResponse(jsonObj) //handler - 화면에서 무엇을 하는지 적혀있는역할 - null 처리 후 실체가 적혀있는데만 실행
+                }
+
+
+            })
+        }
+
     }
 }
