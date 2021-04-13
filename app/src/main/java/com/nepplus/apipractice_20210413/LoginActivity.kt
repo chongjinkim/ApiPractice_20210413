@@ -1,5 +1,6 @@
 package com.nepplus.apipractice_20210413
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import com.nepplus.apipractice_20210413.utils.ServerUtil
@@ -16,6 +17,16 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setupEvetns() {
+
+        signUpBtn.setOnClickListener {
+
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
+
+            startActivity(myIntent)
+
+        }
+
+
         loginBtn.setOnClickListener {
 
             //입력할 이메일 , 비번 추출
