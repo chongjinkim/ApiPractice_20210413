@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApiPractice_20210413"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SignUpActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.ApiPractice_20210413.NoActionBar" />
+            android:theme="@style/Theme.ApiPractice_20210413.NoActionBar"></activity>
+        <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
