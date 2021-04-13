@@ -1,18 +1,16 @@
 package com.nepplus.apipractice_20210413
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.nepplus.apipractice_20210413.utils.ServerUtil
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
 
-class MainActivity : BaseActivity() {
+class LoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         setupEvetns()
         setValue()
     }
@@ -21,9 +19,9 @@ class MainActivity : BaseActivity() {
         loginBtn.setOnClickListener {
 
             //입력할 이메일 , 비번 추출
-
             val inputEmail = emailEdt.text.toString()
             val inputPassword = passwordEdt.text.toString()
+
 
 //            서버에 로그인 요청 코드, 서버 또한 어떤거 했나.
             ServerUtil.postRequestLogin(
