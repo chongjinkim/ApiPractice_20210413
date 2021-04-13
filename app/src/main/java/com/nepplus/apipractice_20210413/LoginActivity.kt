@@ -43,6 +43,11 @@ class LoginActivity : BaseActivity() {
 
                         val codeNum = jsonObj.getInt("code")
 
+//                        서버가 내려주는 토큰값 추출
+
+
+//                        SharedPreferences 기기에 보관 추출
+
                         if (codeNum == 200) {
                             //로그인을 성공한 경우
                             //로그인을 한 사람 + 닉네임 환영합니다
@@ -52,6 +57,8 @@ class LoginActivity : BaseActivity() {
                             val userObj = dataObj.getJSONObject("user")
 
                             val nickname = userObj.getString("nick_name")
+
+                            val token = dataObj.getString("token")
 
                             runOnUiThread {
                                 Toast.makeText(mContext, "${nickname}님 환영합니다.", Toast.LENGTH_SHORT).show()
