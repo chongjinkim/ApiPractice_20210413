@@ -3,6 +3,7 @@ package com.nepplus.apipractice_20210413
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import com.nepplus.apipractice_20210413.utils.ContextUtil
 import com.nepplus.apipractice_20210413.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
@@ -24,6 +25,9 @@ class LoginActivity : BaseActivity() {
 
         autoLoginCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
 
+    //ContextUtil을 이용해 변경이 된 체크값 저장
+
+         ContextUtil.setAutoLogin(mContext, isChecked)
 
 
         }
@@ -101,7 +105,9 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setValue() {
+    //contextUtil에 저장해둔 자동로그인 여부를 꺼내서 -> 체크박스에 반영
 
+        autoLoginCheckBox.isChecked = ContextUtil.getAutoLogin(mContext)
     }
 
 }
