@@ -38,9 +38,11 @@ class MainActivity : BaseActivity() {
 
                         } else {
 
-                            runOnUiThread {
+                            val message = jsonObj.getString("message")
 
-                                Toast.makeText(mContext, "로그인실패", Toast.LENGTH_SHORT).show()
+                            runOnUiThread {
+//로그인 실패 -> 띄워보자.
+                                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                             }
 
                         }
