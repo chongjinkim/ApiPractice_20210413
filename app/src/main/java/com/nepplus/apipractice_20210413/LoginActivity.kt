@@ -18,6 +18,17 @@ class LoginActivity : BaseActivity() {
 
     override fun setupEvetns() {
 
+        //체크박스의 체크 여부가 변환되면
+        //sharedpreferences에 어떻게 변화되었는지(체크/해재) 저장 해제 =
+
+
+        autoLoginCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+
+
+
+        }
+
+
         signUpBtn.setOnClickListener {
 
             val myIntent = Intent(mContext, SignUpActivity::class.java)
